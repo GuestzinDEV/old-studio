@@ -1,62 +1,73 @@
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #cce6ff;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #dbeeff;
 }
 
 .top-bar {
-  background: #3b6db1;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+    background: #3b6ea5;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
 }
 
 .logo {
-  width: 40px;
-  margin-right: 8px;
+    height: 40px;
+    margin-right: 10px;
 }
 
-.site-name {
-  color: white;
-  font-weight: bold;
-}
-
-.nav a {
-  color: white;
-  margin-left: 15px;
-  text-decoration: none;
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
 }
 
 .banner img {
-  width: 100%;
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
 }
 
 .container {
-  width: 80%;
-  margin: auto;
+    padding: 20px;
 }
 
 .box {
-  background: white;
-  border: 2px solid #3b6db1;
-  padding: 15px;
-  margin: 20px 0;
+    background: #f4f9ff;
+    border: 1px solid #8fb1d9;
+    padding: 15px;
+    margin-bottom: 20px;
 }
 
-.counters {
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
+footer {
+    background: #3b6ea5;
+    color: white;
+    text-align: center;
+    padding: 10px;
 }
 
-/* 📱 Mobile */
-@media (max-width: 768px) {
-  .container {
-    width: 95%;
-  }
+/* 📱 MOBILE */
+@media (max-width: 600px) {
+    nav {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
 
-  .counters {
-    flex-direction: column;
-  }
+    nav a {
+        display: inline-block;
+        margin: 5px;
+    }
+
+    .logo {
+        height: 30px;
+    }
 }
