@@ -1,8 +1,46 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <div class="box">
-    <h2>Our Games</h2>
-    <p>Classic Roblox-inspired projects by Old Studio.</p>
+
+    <!-- TÍTULO -->
+    <h2 style="color:#1e5aa8;">Old Studio Games:</h2>
+
+    <!-- JOGO 1 -->
+    <div class="game-card">
+
+        <a href="https://www.roblox.com/share?code=e88aabd1d351254fbec68b94497505c5&type=ExperienceDetails&stamp=1766187174000" target="_blank">
+            <img src="{{ url_for('static', filename='images/game1.png') }}" alt="Memories of Battle" class="game-image">
+        </a>
+
+        <p class="game-title">
+            ⚔️ Memories of Battle ⚔️ | IN DEVELOPMENT
+        </p>
+
+        <p class="game-players">
+            🎮 Players online: Coming soon
+        </p>
+
+    </div>
+
+    <!-- JOGO 2 -->
+    <div class="game-card">
+
+        <a href="https://www.roblox.com/share?code=40015c714ed528419884d2a34efea66e&type=ExperienceDetails&stamp=1766187218488" target="_blank">
+            <img src="{{ url_for('static', filename='images/game2.png') }}" alt="Lost Archive" class="game-image">
+        </a>
+
+        <p class="game-title">
+            📂 LOST ARCHIVE 📂 | IN DEVELOPMENT
+        </p>
+
+        <p class="game-players">
+            🎮 Players online: Coming soon
+        </p>
+
+    </div>
+
 </div>
+
 {% endblock %}
