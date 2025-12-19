@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Old Studio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<!-- TOPO -->
+<header class="top-bar">
+    <div class="logo-area">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo">
+        <span class="site-name">Old Studio</span>
+    </div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/games">Games</a>
+        <a href="/discord">Discord</a>
+        <a href="/about">About</a>
+    </nav>
+</header>
+
+<!-- BANNER -->
+<div class="banner">
+    <img src="{{ url_for('static', filename='images/banner.png') }}">
+</div>
+
+<!-- CONTEÚDO -->
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
+
+<!-- RODAPÉ -->
+<footer>
+    <p>👥 Online now: {{ online }}</p>
+    <p>© 2025–2026 Old Studio. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
