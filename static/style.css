@@ -1,7 +1,10 @@
+/* ===== BASE DO SITE ===== */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #dbeeff;
+    color: #2a4f7a;
 }
 
 .top-bar {
@@ -24,10 +27,20 @@ body {
     margin-right: 10px;
 }
 
+.site-name {
+    font-weight: bold;
+    font-size: 18px;
+}
+
 nav a {
     color: white;
     margin: 0 10px;
     text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
 }
 
 .banner img {
@@ -52,9 +65,43 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
+    font-size: 14px;
 }
 
-/* 📱 MOBILE */
+/* ===== GAMES PAGE ===== */
+
+.game-card {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.game-image {
+    width: 220px;
+    border: 2px solid #8fb1d9;
+    background: #ffffff;
+    padding: 5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.game-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.game-title {
+    margin-top: 8px;
+    font-weight: bold;
+    color: #1e5aa8;
+}
+
+.game-players {
+    font-size: 14px;
+    color: #2a4f7a;
+    margin-bottom: 10px;
+}
+
+/* ===== MOBILE ===== */
+
 @media (max-width: 600px) {
     nav {
         width: 100%;
@@ -69,5 +116,9 @@ footer {
 
     .logo {
         height: 30px;
+    }
+
+    .game-image {
+        width: 180px;
     }
 }
