@@ -2,20 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <title>Old Studio</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- MOBILE RESPONSIVE -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
 <!-- TOPO -->
 <header class="top-bar">
     <div class="logo-area">
-        <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Old Studio Logo" class="logo">
         <span class="site-name">Old Studio</span>
     </div>
 
-    <nav>
+    <nav class="nav">
         <a href="/">Home</a>
         <a href="/games">Games</a>
         <a href="/discord">Discord</a>
@@ -25,7 +33,7 @@
 
 <!-- BANNER -->
 <div class="banner">
-    <img src="{{ url_for('static', filename='images/banner.png') }}">
+    <img src="{{ url_for('static', filename='images/banner.png') }}" alt="Banner">
 </div>
 
 <!-- CONTEÚDO -->
