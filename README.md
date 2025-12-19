@@ -1,2 +1,0 @@
-# old-studio
-My website.
