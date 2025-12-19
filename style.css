@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #cce6ff;
+    color: #000;
+}
+
+/* TOPO */
+.top-bar {
+    background-color: #3b6db1;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.site-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+/* MENU */
+.nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+/* BANNER */
+.banner {
+    background-color: #ffffff;
+    padding: 10px;
+    text-align: center;
+}
+
+.banner img {
+    max-width: 100%;
+    border: 2px solid #3b6db1;
+}
+
+/* CONTEÚDO */
+.container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.box {
+    background-color: #ffffff;
+    border: 2px solid #3b6db1;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.box h2 {
+    margin-top: 0;
+    color: #3b6db1;
+}
+
+/* RODAPÉ */
+footer {
+    background-color: #3b6db1;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
