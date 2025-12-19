@@ -1,57 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Old Studio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<script defer src="{{ url_for('static', filename='script.js') }}"></script>
-</head>
-
-<body>
-
-<header class="top-bar">
-  <div class="logo-area">
-    <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo">
-    <span class="site-name">Old Studio</span>
-  </div>
-
-  <nav class="nav">
-    <a href="/">Home</a>
-    <a href="/games">Games</a>
-    <a href="/discord">Discord</a>
-    <a href="/about">About Us</a>
-  </nav>
-</header>
-
-<div class="banner">
-  <img src="{{ url_for('static', filename='images/banner.png') }}">
-</div>
-
-<main class="container">
-  <div class="box">
+{% block content %}
+<div class="box">
     <h2>Welcome to Old Studio</h2>
     <p>
-      Old Studio brings back the classic Roblox experience through nostalgic projects.
+        Welcome to the official Old Studio website. This studio focuses on bringing back the classic Roblox experience.
     </p>
-  </div>
+</div>
 
-  <div class="box counters">
-    <div>
-      <h3>Total Visitors</h3>
-      <p id="visitors">Loading...</p>
-    </div>
-    <div>
-      <h3>Users Online</h3>
-      <p id="online">Loading...</p>
-    </div>
-  </div>
-</main>
-
-<footer>
-  © 2025–2026 Old Studio. All rights reserved.
-</footer>
-
-</body>
-</html>
+<div class="box">
+    <h2>News</h2>
+    <ul>
+        <li>✔ Lost Archive is in development</li>
+        <li>✔ Official website launched</li>
+        <li>✔ Memories of Battle paused</li>
+        <li>✔ Discord server created</li>
+    </ul>
+</div>
+{% endblock %}
