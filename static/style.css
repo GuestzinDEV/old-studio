@@ -56,9 +56,36 @@ nav a:hover {
 .box {
     background: #f4f9ff;
     border: 1px solid #8fb1d9;
-    padding: 15px;
+    padding: 20px;
     margin-bottom: 20px;
 }
+
+/* ===== TÍTULOS AZUIS ===== */
+
+.title-blue {
+    color: #1e5aa8;
+}
+
+/* ===== HOME COM IMAGEM AO LADO ===== */
+
+.box-with-image {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.box-text {
+    flex: 1;
+}
+
+.box-image img {
+    width: 90px;
+    height: auto;
+    opacity: 0.95;
+}
+
+/* ===== FOOTER ===== */
 
 footer {
     background: #3b6ea5;
@@ -136,6 +163,16 @@ footer {
 
     .logo {
         height: 30px;
+    }
+
+    .box-with-image {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .box-image img {
+        width: 70px;
+        margin-top: 10px;
     }
 
     .game-image,
