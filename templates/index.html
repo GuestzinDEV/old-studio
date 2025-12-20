@@ -1,28 +1,51 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="box">
-    <h2 style="color: #1e5aa8;">Welcome to Old Studio</h2>
-    <p>
-        Welcome to the official Old Studio website. This studio focuses on bringing back the classic Roblox experience.
-    </p>
+
+<!-- CAIXA 1 -->
+<div class="box box-with-image">
+    <div class="box-text">
+        <h2 style="color: #1e5aa8;">Welcome to Old Studio</h2>
+        <p>
+            Welcome to the official Old Studio website. This studio focuses on bringing back the classic Roblox experience.
+        </p>
+    </div>
+
+    <div class="box-image">
+        <img src="{{ url_for('static', filename='images/build.png') }}" alt="Build">
+    </div>
 </div>
 
-<div class="box">
-    <h2 style="color: #1e5aa8;">Why do we make retro-style games?</h2>
-    <p>
-        We want to bring back the feeling of what it would be like if Roblox were in 2006-2007. 
-    </p>
+<!-- CAIXA 2 -->
+<div class="box box-with-image">
+    <div class="box-text">
+        <h2 style="color: #1e5aa8;">Why do we make retro-style games?</h2>
+        <p>
+            We want to bring back the feeling of what it would be like if Roblox were in 2006-2007.
+        </p>
+    </div>
+
+    <div class="box-image">
+        <img src="{{ url_for('static', filename='images/roblox.png') }}" alt="Roblox Classic">
+    </div>
 </div>
 
-<div class="box">
-    <h2 style="color: #1e5aa8;">News</h2>
-    <ul>
-        <li>🌐 Website under development.</li>
-        <li>⚔️ Memories of Battle development is temporarily halted.</li>
-        <li>📂 Lost Archive in development.</li>
-        <li>💻 Discord community under development.</li>
-        <li>🖼️ Website pages under development.</li>
-    </ul>
+<!-- CAIXA 3 -->
+<div class="box box-with-image">
+    <div class="box-text">
+        <h2 style="color: #1e5aa8;">News</h2>
+        <ul>
+            <li>🌐 Website under development.</li>
+            <li>⚔️ Memories of Battle development is temporarily halted.</li>
+            <li>📂 Lost Archive in development.</li>
+            <li>💻 Discord community under development.</li>
+            <li>🖼️ Website pages under development.</li>
+        </ul>
+    </div>
+
+    <div class="box-image">
+        <img src="{{ url_for('static', filename='images/time.png') }}" alt="Development Time">
+    </div>
 </div>
+
 {% endblock %}
