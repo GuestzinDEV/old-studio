@@ -1,8 +1,42 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <div class="box">
-    <h2>Discord</h2>
-    <p>Join our community on Discord.</p>
+
+    <!-- TÍTULO -->
+    <h2 style="color:#1e5aa8;">
+        What are the benefits of joining the Discord community?
+    </h2>
+
+    <!-- TEXTO -->
+    <p style="margin-top: 10px;">
+        By joining our Discord community you can:
+    </p>
+
+    <ul style="margin-top: 10px;">
+        <li>👥 Make friends.</li>
+        <li>💭 Chat with other players of our games.</li>
+        <li>❓ Suggest things that could be improved in the game.</li>
+        <li>👾 Help fix bugs.</li>
+        <li>📢 Get quick support.</li>
+    </ul>
+
+    <p style="margin-top: 15px;">
+        To join, simply click on the image below:
+    </p>
+
+    <!-- IMAGEM DISCORD -->
+    <div class="discord-card">
+
+        <a href="https://discord.gg/ttCTSJYH3G" target="_blank">
+            <img src="{{ url_for('static', filename='images/discord.png') }}"
+                 alt="Join our Discord"
+                 class="discord-image">
+        </a>
+
+    </div>
+
 </div>
+
 {% endblock %}
