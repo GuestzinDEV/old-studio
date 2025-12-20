@@ -100,6 +100,26 @@ footer {
     margin-bottom: 10px;
 }
 
+/* ===== DISCORD PAGE ===== */
+
+.discord-card {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.discord-image {
+    width: 220px;
+    border: 2px solid #8fb1d9;
+    background: #ffffff;
+    padding: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.discord-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
 /* ===== MOBILE ===== */
 
 @media (max-width: 600px) {
@@ -118,7 +138,8 @@ footer {
         height: 30px;
     }
 
-    .game-image {
+    .game-image,
+    .discord-image {
         width: 180px;
     }
 }
