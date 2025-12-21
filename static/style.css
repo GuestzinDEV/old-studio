@@ -7,14 +7,14 @@ body {
     color: #2a4f7a;
 }
 
+/* ===== TOPO ===== */
+
 .top-bar {
     background: #3b6ea5;
     color: white;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    flex-wrap: wrap;
 }
 
 .logo-area {
@@ -32,22 +32,42 @@ body {
     font-size: 18px;
 }
 
-nav a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
+/* ===== BANNER ===== */
 
 .banner img {
     width: 100%;
     max-height: 200px;
     object-fit: cover;
 }
+
+/* ===== NAVBAR RETRÔ (ROBLOX ANTIGO) ===== */
+
+.nav-bar {
+    background: #efe8d6;
+    border-top: 1px solid #c7bfa6;
+    border-bottom: 1px solid #c7bfa6;
+    padding: 8px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.nav-bar a {
+    color: #1e5aa8;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 4px;
+}
+
+.nav-bar a:hover {
+    text-decoration: underline;
+}
+
+.nav-bar span {
+    color: #7b6a4f;
+    margin: 0 3px;
+}
+
+/* ===== CONTEÚDO ===== */
 
 .container {
     padding: 20px;
@@ -147,9 +167,7 @@ footer {
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
-/* ===================================================== */
-/* ===== JOURNAL DEV (ROBLOX DEVELOPERS’ JOURNAL) ===== */
-/* ===================================================== */
+/* ===== JOURNAL DEV ===== */
 
 .journal-layout {
     display: flex;
@@ -157,70 +175,29 @@ footer {
     margin-top: 20px;
 }
 
-/* Conteúdo principal */
 .journal-main {
     flex: 3;
 }
 
-.journal-title {
-    font-size: 22px;
-    color: #7b2d2d; /* Marrom retrô */
-    margin-bottom: 5px;
-}
-
-.journal-subtitle {
-    font-size: 13px;
-    color: #6b6b6b;
-    margin-bottom: 15px;
-}
-
-.journal-main p {
-    font-size: 15px;
-    line-height: 1.6;
-}
-
-/* Sidebar estilo antigo */
 .journal-sidebar {
     flex: 1;
     background: #efe8d6;
     border: 1px solid #c7bfa6;
-}
-
-.journal-sidebar h3 {
-    font-size: 15px;
-    color: #5a3a1c;
-    margin-bottom: 8px;
-}
-
-.journal-sidebar ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-}
-
-.journal-sidebar li {
-    font-size: 14px;
-    margin-bottom: 6px;
-    color: #2a4f7a;
+    padding: 10px;
 }
 
 /* ===== MOBILE ===== */
 
 @media (max-width: 600px) {
 
-    nav {
-        width: 100%;
-        text-align: center;
-        margin-top: 10px;
-    }
-
-    nav a {
-        display: inline-block;
-        margin: 5px;
-    }
-
     .logo {
         height: 30px;
+    }
+
+    .nav-bar {
+        font-size: 13px;
+        padding: 10px 5px;
+        line-height: 1.6;
     }
 
     .box-with-image {
@@ -238,12 +215,7 @@ footer {
         width: 180px;
     }
 
-    /* Journal no celular */
     .journal-layout {
         flex-direction: column;
-    }
-
-    .journal-title {
-        font-size: 20px;
     }
 }
