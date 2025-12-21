@@ -37,5 +37,13 @@ def about():
 def discord():
     return render_template("discord.html", online=get_online_count())
 
+@app.route("/credits")
+def credits():
+    return render_template("credits.html", online=online_users)
+
+@app.route("/journal")
+def journal():
+    return render_template("journal.html", online=online_users)
+
 if __name__ == "__main__":
     app.run(debug=True)
