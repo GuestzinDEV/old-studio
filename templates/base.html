@@ -16,26 +16,32 @@
 </head>
 <body>
 
-<!-- TOPO -->
+<!-- TOPO (SOMENTE LOGO + NOME) -->
 <header class="top-bar">
     <div class="logo-area">
         <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Old Studio Logo" class="logo">
         <span class="site-name">Old Studio</span>
     </div>
-
-    <nav class="nav">
-        <a href="/">Home</a>
-        <a href="/games">Games</a>
-        <a href="/discord">Discord</a>
-        <a href="/credits">Credits</a>
-        <a href="/journal">Journal Dev</a>
-        <a href="/about">About Us</a>
-    </nav>
 </header>
 
 <!-- BANNER -->
 <div class="banner">
     <img src="{{ url_for('static', filename='images/banner1.png') }}" alt="Banner">
+</div>
+
+<!-- NAVBAR RETRÔ (ABAIXO DO BANNER) -->
+<div class="nav-bar">
+    <a href="/">Home</a>
+    <span>|</span>
+    <a href="/games">Games</a>
+    <span>|</span>
+    <a href="/journal">Journal Dev</a>
+    <span>|</span>
+    <a href="/credits">Credits</a>
+    <span>|</span>
+    <a href="/discord">Discord</a>
+    <span>|</span>
+    <a href="/about">About Us</a>
 </div>
 
 <!-- CONTEÚDO -->
