@@ -16,20 +16,27 @@
 </head>
 <body>
 
-<!-- TOPO (SOMENTE LOGO + NOME) -->
+<!-- ================= HEADER ================= -->
+
+<!-- TOPO (LOGO + NOME) -->
 <header class="top-bar">
     <div class="logo-area">
-        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Old Studio Logo" class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}"
+             alt="Old Studio Logo"
+             class="logo">
         <span class="site-name">Old Studio</span>
     </div>
 </header>
 
-<!-- BANNER -->
+<!-- ================= BANNER ================= -->
+
 <div class="banner">
-    <img src="{{ url_for('static', filename='images/banner1.png') }}" alt="Banner">
+    <img src="{{ url_for('static', filename='images/banner1.png') }}"
+         alt="Old Studio Banner">
 </div>
 
-<!-- NAVBAR RETRÔ (ABAIXO DO BANNER) -->
+<!-- ================= NAVBAR RETRÔ ================= -->
+
 <div class="nav-bar">
     <a href="/">Home</a>
     <span>|</span>
@@ -44,14 +51,17 @@
     <a href="/about">About Us</a>
 </div>
 
-<!-- CONTEÚDO -->
+<!-- ================= CONTENT ================= -->
+
 <main class="container">
-    {% block content %}{% endblock %}
+    {% block content %}
+    {% endblock %}
 </main>
 
-<!-- RODAPÉ -->
+<!-- ================= FOOTER ================= -->
+
 <footer>
-    <p>👥 Online now: {{ online }}</p>
+    <p>👥 Online now: {{ online | default(0) }}</p>
     <p>📨 Support email: oldstudio.help@gmail.com</p>
     <p>💻 Instagram support: @oldstudio_roblox</p>
     <p>📢 (Support is more efficient in our Discord community)</p>
