@@ -81,7 +81,6 @@ def journal():
             try:
                 supabase.table("journal_posts").insert({
                     "author": author,
-                    "title": "Update",
                     "content": content
                 }).execute()
             except Exception as e:
