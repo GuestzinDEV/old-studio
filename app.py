@@ -5,7 +5,7 @@ import os
 from supabase import create_client
 
 app = Flask(__name__)
-app.secret_key = "oldstudio-session-key"
+app.secret_key = os.environ.get("FLASK_SECRET_KEY", "oldstudio-session-key")
 
 # ================= ONLINE COUNTER =================
 online_sessions = {}
@@ -13,10 +13,7 @@ TIMEOUT = 20  # segundos
 
 def get_online_count():
     now = time.time()
-    inactive = [
-        sid for sid, last_seen in online_sessions.items()
-        if now - last_seen > TIMEOUT
-    ]
+    inactive = [sid for sid, last_seen in online_sessions.items() if now - last_seen > TIMEOUT]
     for sid in inactive:
         del online_sessions[sid]
     return len(online_sessions)
@@ -34,6 +31,9 @@ def inject_online():
 # ================= SUPABASE =================
 SUPABASE_URL = os.environ.get("SUPABASE_URL")
 SUPABASE_SERVICE_KEY = os.environ.get("SUPABASE_SERVICE_KEY")
+
+if not SUPABASE_URL or not SUPABASE_SERVICE_KEY:
+    raise Exception("Supabase URL or Service Key not set in environment variables")
 
 supabase = create_client(SUPABASE_URL, SUPABASE_SERVICE_KEY)
 
@@ -70,26 +70,29 @@ def journal():
     error = None
 
     if request.method == "POST":
-        author = request.form["author"]
-        password = request.form["password"]
-        content = request.form["content"]
+        author = request.form.get("author")
+        password = request.form.get("password")
+        content = request.form.get("content")
 
+        # validar senha
         if DEV_PASSWORDS.get(author) != password:
             error = "Invalid password."
         else:
-            supabase.table("journal_posts").insert({
-                "author": author,
-                "content": content
-            }).execute()
+            try:
+                supabase.table("journal_posts").insert({
+                    "author": author,
+                    "content": content
+                }).execute()
+            except Exception as e:
+                error = f"Failed to post update: {e}"
 
     # pegar todos os posts
-    posts = (
-        supabase.table("journal_posts")
-        .select("*")
-        .order("created_at", desc=True)
-        .execute()
-        .data
-    )
+    try:
+        response = supabase.table("journal_posts").select("*").order("created_at", desc=True).execute()
+        posts = response.data if response.data else []
+    except Exception as e:
+        posts = []
+        error = f"Failed to fetch posts: {e}"
 
     return render_template(
         "journal.html",
