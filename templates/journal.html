@@ -3,24 +3,17 @@
 
 <div class="journal-layout">
 
-    <!-- CONTEÚDO PRINCIPAL -->
     <div class="journal-main box">
-        <h2 class="journal-title">Old Studio Developers’ Journal</h2>
-
-        <p class="journal-date">
-            {{ current_category }}
-        </p>
+        <h2>Old Studio Developers’ Journal</h2>
+        <p>{{ current_category }}</p>
 
         {% if posts|length == 0 %}
-            <p style="margin-top: 15px;">
-                <strong>No updates for now.</strong>
-            </p>
+            <p><strong>No updates for now.</strong></p>
         {% else %}
             {% for post in posts %}
-                <hr style="margin: 20px 0;">
+                <hr>
 
-                <!-- AUTOR -->
-                <div style="display:flex; align-items:center; gap:10px;">
+                <div style="display:flex; gap:10px; align-items:center;">
                     {% if post.author == "Guestzin" %}
                         <img src="{{ url_for('static', filename='images/guest.png') }}" width="40">
                     {% elif post.author == "Mrc" %}
@@ -29,23 +22,17 @@
 
                     <div>
                         <strong>{{ post.author }}</strong><br>
-                        <span style="font-size:12px; color:#6b6b6b;">
-                            {{ post.created_at[:10] }}
-                        </span>
+                        <small>{{ post.created_at[:10] }}</small>
                     </div>
                 </div>
 
-                <!-- TEXTO -->
-                <p style="margin-top:10px;">
-                    {{ post.content }}
-                </p>
+                <p>{{ post.content }}</p>
             {% endfor %}
         {% endif %}
     </div>
 
-    <!-- BARRA LATERAL -->
     <aside class="journal-sidebar box">
-        <h3>Journal Sections</h3>
+        <h3>Sections</h3>
         <ul>
             <li><a href="/journal/development">Development Logs</a></li>
             <li><a href="/journal/design">Design Notes</a></li>
@@ -56,7 +43,6 @@
 
 </div>
 
-<!-- FORMULÁRIO (APENAS DEVS) -->
 <div class="box" style="margin-top:20px;">
     <h3>Post an Update</h3>
 
@@ -65,12 +51,12 @@
     {% endif %}
 
     <form method="post">
-        <input type="password" name="password" placeholder="Password" required><br><br>
-
         <select name="author" required>
             <option value="Guestzin">Guestzin</option>
             <option value="Mrc">Mrc</option>
         </select><br><br>
+
+        <input type="password" name="password" placeholder="Password" required><br><br>
 
         <textarea name="content" rows="4" required></textarea><br><br>
 
