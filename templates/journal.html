@@ -5,7 +5,6 @@
 
     <div class="journal-main box">
         <h2>Old Studio Developers’ Journal</h2>
-        <p>{{ current_category }}</p>
 
         {% if posts|length == 0 %}
             <p><strong>No updates for now.</strong></p>
@@ -30,16 +29,6 @@
             {% endfor %}
         {% endif %}
     </div>
-
-    <aside class="journal-sidebar box">
-        <h3>Sections</h3>
-        <ul>
-            <li><a href="/journal/development">Development Logs</a></li>
-            <li><a href="/journal/design">Design Notes</a></li>
-            <li><a href="/journal/concepts">Game Concepts</a></li>
-            <li><a href="/journal/releases">Release Updates</a></li>
-        </ul>
-    </aside>
 
 </div>
 
