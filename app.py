@@ -81,7 +81,8 @@ def journal():
             try:
                 supabase.table("journal_posts").insert({
                     "author": author,
-                    "content": content
+                    "content": content,
+                    "category": "update"
                 }).execute()
             except Exception as e:
                 error = f"Failed to post update: {e}"
