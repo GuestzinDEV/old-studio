@@ -13,12 +13,15 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- ================= SUPABASE (SAFE PUBLIC ACCESS) ================= -->
+    <!-- This uses ONLY the anon public key (safe for frontend) -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
 <!-- ================= HEADER ================= -->
 
-<!-- TOPO (LOGO + NOME) -->
 <header class="top-bar">
     <div class="logo-area">
         <img src="{{ url_for('static', filename='images/logo.png') }}"
@@ -66,6 +69,24 @@
     <p>💻 Instagram support: @oldstudio_roblox</p>
     <p>© 2025 Old Studio. All rights reserved.</p>
 </footer>
+
+<!-- ================= SUPABASE CONFIG ================= -->
+<script>
+    /*
+        ⚠️ SECURITY NOTICE
+        - This uses ONLY the anon public key
+        - RLS (Row Level Security) protects the database
+        - Safe to be public (GitHub / frontend)
+    */
+
+    const SUPABASE_URL = "https://iwrlysnmefjsaecvofxf.supabase.co/";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3cmx5c25tZWZqc2FlY3ZvZnhmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY0OTgyNDUsImV4cCI6MjA4MjA3NDI0NX0.10mqP7RbNjLudd_WF4haD52ohOq0d_2skzJEj3BpKn4";
+
+    const supabase = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+    );
+</script>
 
 </body>
 </html>
