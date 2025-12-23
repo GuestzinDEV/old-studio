@@ -7,11 +7,8 @@
     <div class="journal-main box">
         <h2 class="journal-title">Old Studio Developers’ Journal</h2>
 
-        <p class="journal-date">Development Log</p>
-
-        <p>
-            This page is dedicated to sharing development updates, design notes,
-            and behind-the-scenes information about Old Studio projects.
+        <p class="journal-date">
+            {{ current_category }}
         </p>
 
         {% if posts|length == 0 %}
@@ -20,13 +17,26 @@
             </p>
         {% else %}
             {% for post in posts %}
-                <hr style="margin: 15px 0;">
+                <hr style="margin: 20px 0;">
 
-                <p style="font-size:13px; color:#6b6b6b;">
-                    {{ post.category }} • {{ post.created_at[:10] }}
-                </p>
+                <!-- AUTOR -->
+                <div style="display:flex; align-items:center; gap:10px;">
+                    {% if post.author == "Guestzin" %}
+                        <img src="{{ url_for('static', filename='images/guest.png') }}" width="40">
+                    {% elif post.author == "Mrc" %}
+                        <img src="{{ url_for('static', filename='images/mrc.png') }}" width="40">
+                    {% endif %}
 
-                <p>
+                    <div>
+                        <strong>{{ post.author }}</strong><br>
+                        <span style="font-size:12px; color:#6b6b6b;">
+                            {{ post.created_at[:10] }}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- TEXTO -->
+                <p style="margin-top:10px;">
                     {{ post.content }}
                 </p>
             {% endfor %}
@@ -37,22 +47,16 @@
     <aside class="journal-sidebar box">
         <h3>Journal Sections</h3>
         <ul>
-            <li>Development Logs</li>
-            <li>Design Notes</li>
-            <li>Game Concepts</li>
-            <li>Release Updates</li>
-        </ul>
-
-        <h3 style="margin-top: 15px;">Archives</h3>
-        <ul>
-            <li>2026</li>
-            <li>2025</li>
+            <li><a href="/journal/development">Development Logs</a></li>
+            <li><a href="/journal/design">Design Notes</a></li>
+            <li><a href="/journal/concepts">Game Concepts</a></li>
+            <li><a href="/journal/releases">Release Updates</a></li>
         </ul>
     </aside>
 
 </div>
 
-<!-- FORMULÁRIO (APENAS PARA DEVS) -->
+<!-- FORMULÁRIO (APENAS DEVS) -->
 <div class="box" style="margin-top:20px;">
     <h3>Post an Update</h3>
 
@@ -63,11 +67,9 @@
     <form method="post">
         <input type="password" name="password" placeholder="Password" required><br><br>
 
-        <select name="category" required>
-            <option value="Development Logs">Development Logs</option>
-            <option value="Design Notes">Design Notes</option>
-            <option value="Game Concepts">Game Concepts</option>
-            <option value="Release Updates">Release Updates</option>
+        <select name="author" required>
+            <option value="Guestzin">Guestzin</option>
+            <option value="Mrc">Mrc</option>
         </select><br><br>
 
         <textarea name="content" rows="4" required></textarea><br><br>
