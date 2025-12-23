@@ -2,38 +2,54 @@
 
 {% block content %}
 
-<div class="box">
-    <h2 class="title-blue">Website Credits</h2>
-    <p>
-        This website was designed and developed by <strong>Guestzin</strong>.
-    </p>
+<div class="box box-with-image">
+    <div class="box-text">
+        <h2 class="title-blue">Website Credits</h2>
+        <p>
+            This website was designed and developed by <strong>Guestzin</strong>.
+        </p>
+    </div>
+
+    <div class="box-image">
+        <img src="{{ url_for('static', filename='images/image1.png') }}" alt="Credits Image">
+    </div>
 </div>
 
-<div class="box">
-    <h2 class="title-blue">Main Contributors</h2>
-    <p>
-        The main contributors to Old Studio are:
-    </p>
-    <ul>
-        <li><strong>Mrcssf_29</strong></li>
-        <li><strong>エミリー</strong></li>
-    </ul>
+<div class="box box-with-image">
+    <div class="box-text">
+        <h2 class="title-blue">Main Contributors</h2>
+        <p>The main contributors to Old Studio are:</p>
+        <ul>
+            <li><strong>Mrcssf_29</strong></li>
+            <li><strong>エミリー</strong></li>
+        </ul>
+    </div>
+
+    <div class="box-image">
+        <img src="{{ url_for('static', filename='images/image2.png') }}" alt="Contributors Image">
+    </div>
 </div>
 
-<div class="box">
-    <h2 class="title-blue">Old Studio Team Members</h2>
-    <ul>
-        <li><strong>Guestzin</strong> – Founder</li>
-        <li><strong>Mrcssf_29</strong> – Founder</li>
-        <li><strong>エミリー</strong> – ???</li>
-        <li><strong>zigruuuuu</strong> – Beta Tester</li>
-        <li><strong>JenniferTH3</strong> – Beta Tester</li>
-        <li><strong>ribeirinhoufc</strong> – Animador 3d</li>
-        <li><strong>scoltag</strong> – Beta Tester</li>
-        <li><strong>Sancho</strong> – Game Music and Animator 3d</li>
-        <li><strong>Lisboa18293</strong> – Beta Tester</li>
-        <li><strong>Any_Brine</strong> – Animador 3d</li>
-    </ul>
+<div class="box box-with-image">
+    <div class="box-text">
+        <h2 class="title-blue">Old Studio Team Members</h2>
+        <ul>
+            <li><strong>Guestzin</strong> – Founder</li>
+            <li><strong>Mrcssf_29</strong> – Founder</li>
+            <li><strong>エミリー</strong> – Team Member</li>
+            <li><strong>zigruuuuu</strong> – Beta Tester</li>
+            <li><strong>JenniferTH3</strong> – Beta Tester</li>
+            <li><strong>ribeirinhoufc</strong> – 3D Animator</li>
+            <li><strong>scoltag</strong> – Beta Tester</li>
+            <li><strong>Sancho</strong> – Game Music & 3D Animator</li>
+            <li><strong>Lisboa18293</strong> – Beta Tester</li>
+            <li><strong>Any_Brine</strong> – 3D Animator</li>
+        </ul>
+    </div>
+
+    <div class="box-image">
+        <img src="{{ url_for('static', filename='images/image3.png') }}" alt="Team Image">
+    </div>
 </div>
 
 {% endblock %}
