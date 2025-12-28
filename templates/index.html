@@ -1,51 +1,46 @@
 {% extends "base.html" %}
-
 {% block content %}
 
 <!-- CAIXA 1 -->
 <div class="box box-with-image">
     <div class="box-text">
-        <h2 style="color: #1e5aa8;">Welcome to Old Studio</h2>
-        <p>
-            Welcome to the official Old Studio website. This studio focuses on bringing back the classic Roblox experience.
-        </p>
+        <h2 style="color:#1e5aa8;">Welcome to Old Studio</h2>
+        <p>Welcome to the official Old Studio website.</p>
     </div>
-
     <div class="box-image">
-        <img src="{{ url_for('static', filename='images/build.png') }}" alt="Build">
+        <img src="{{ url_for('static', filename='images/build.png') }}">
     </div>
 </div>
 
 <!-- CAIXA 2 -->
 <div class="box box-with-image">
     <div class="box-text">
-        <h2 style="color: #1e5aa8;">Why do we make retro-style games?</h2>
-        <p>
-            We want to bring back the feeling of what it would be like if Roblox were in 2006-2007.
-        </p>
+        <h2 style="color:#1e5aa8;">Why retro games?</h2>
+        <p>Bringing back the Roblox 2006–2007 feeling.</p>
     </div>
-
     <div class="box-image">
-        <img src="{{ url_for('static', filename='images/roblox.png') }}" alt="Roblox Classic">
+        <img src="{{ url_for('static', filename='images/roblox.png') }}">
     </div>
 </div>
 
-<!-- CAIXA 3 -->
-<div class="box box-with-image">
-    <div class="box-text">
-        <h2 style="color: #1e5aa8;">News</h2>
-        <ul>
-            <li>🎉🎊 WEBSITE OFFICIALLY LAUNCHED! WELCOME! 🎉🎊</li>
-            <li>📁 Lost Archive in development.</li>
-            <li>⚔️ Memories of Battle development is temporarily halted.</li>
-            <li>📨 We have created a support email and Instagram account. If you have any questions, please contact us at oldstudio.help@gmail.com or oldstudio.roblox.</li>
-            <li>💻 Discord server coming soon.</li>
-        </ul>
+<!-- CAIXA 3 - NEWS + SLIDER -->
+<div class="box">
+    <h2 style="color:#1e5aa8;">News</h2>
+    <p>🖼️ Lost Archive lobby finished.</p>
+
+    <div class="slider">
+        <button class="slider-btn left" onclick="prevImage()">&#10094;</button>
+
+        <img
+            id="slider-image"
+            src="{{ url_for('static', filename='images/scene1.png') }}"
+        >
+
+        <button class="slider-btn right" onclick="nextImage()">&#10095;</button>
     </div>
 
-    <div class="box-image">
-        <img src="{{ url_for('static', filename='images/time.png') }}" alt="Development Time">
-    </div>
+    <p>📁 Lost Archive in development.</p>
+    <p>💻 Discord server coming soon.</p>
 </div>
 
 {% endblock %}
