@@ -1,252 +1,49 @@
-<!DOCTYPE html>  <html lang="en">    <head>    
-    <meta charset="UTF-8">    
-    <title>Old Studio</title>  <meta name="viewport" content="width=device-width, initial-scale=1.0">    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">    
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">    <!-- Supabase JS -->    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>  </head>    
-<body>  <header class="top-bar">    
-    <div class="logo-area">    
-        <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo">    
-        <span class="site-name">Old Studio</span>    
-    </div>    
-</header>  <div class="banner">    
-    <img src="{{ url_for('static', filename='images/banner1.png') }}">    
-</div>  <div class="nav-bar">    
-    <a href="/">Home</a> |    
-    <a href="/games">Games</a> |    
-    <a href="/journal">Journal Dev</a> |    
-    <a href="/credits">Credits</a> |    
-    <a href="/discord">Discord</a> |    
-    <a href="/about">About Us</a>    
-</div>  <main class="container">    
-    {% block content %}{% endblock %}    
-</main>  <footer>    
-    <p>👥 Online now: {{ online | default(0) }}</p>    
-    <p>📨 Support email: oldstudio.help@gmail.com</p>    
-    <p>© 2025 Old Studio. All rights reserved.</p>    
-</footer>  </body>    
-</html>  style:  /* ===== BASE DO SITE ===== */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Old Studio</title>
 
-body {
-margin: 0;
-font-family: Arial, sans-serif;
-background: #dbeeff;
-color: #2a4f7a;
-}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-/* ===== TOPO ===== */
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-.top-bar {
-background: #3b6ea5;
-color: white;
-display: flex;
-align-items: center;
-padding: 10px 20px;
-}
+    <!-- Supabase JS -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+</head>
 
-.logo-area {
-display: flex;
-align-items: center;
-}
+<body>
 
-.logo {
-height: 40px;
-margin-right: 10px;
-}
+<header class="top-bar">
+    <div class="logo-area">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo">
+        <span class="site-name">Old Studio</span>
+    </div>
+</header>
 
-.site-name {
-font-weight: bold;
-font-size: 18px;
-}
+<div class="banner">
+    <img src="{{ url_for('static', filename='images/banner1.png') }}">
+</div>
 
-/* ===== BANNER ===== */
+<div class="nav-bar">
+    <a href="/">Home</a> |
+    <a href="/games">Games</a> |
+    <a href="/journal">Journal Dev</a> |
+    <a href="/credits">Credits</a> |
+    <a href="/discord">Discord</a> |
+    <a href="/about">About Us</a>
+</div>
 
-.banner img {
-width: 100%;
-max-height: 200px;
-object-fit: cover;
-}
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
 
-/* ===== NAVBAR RETRÔ (ROBLOX ANTIGO) ===== */
+<footer>
+    <p>👥 Online now: {{ online | default(0) }}</p>
+    <p>📨 Support email: oldstudio.help@gmail.com</p>
+    <p>© 2025 Old Studio. All rights reserved.</p>
+</footer>
 
-.nav-bar {
-background: #efe8d6;
-border-top: 1px solid #c7bfa6;
-border-bottom: 1px solid #c7bfa6;
-padding: 8px 0;
-text-align: center;
-font-size: 14px;
-}
-
-.nav-bar a {
-color: #1e5aa8;
-text-decoration: none;
-font-weight: bold;
-margin: 0 4px;
-}
-
-.nav-bar a:hover {
-text-decoration: underline;
-}
-
-.nav-bar span {
-color: #7b6a4f;
-margin: 0 3px;
-}
-
-/* ===== CONTEÚDO ===== */
-
-.container {
-padding: 20px;
-}
-
-.box {
-background: #f4f9ff;
-border: 1px solid #8fb1d9;
-padding: 20px;
-margin-bottom: 20px;
-}
-
-/* ===== TÍTULOS ===== */
-
-.title-blue {
-color: #1e5aa8;
-}
-
-/* ===== HOME COM IMAGEM AO LADO ===== */
-
-.box-with-image {
-display: flex;
-justify-content: space-between;
-align-items: center;
-gap: 20px;
-}
-
-.box-text {
-flex: 1;
-}
-
-.box-image img {
-width: 90px;
-height: auto;
-opacity: 0.95;
-}
-
-/* ===== FOOTER ===== */
-
-footer {
-background: #3b6ea5;
-color: white;
-text-align: center;
-padding: 10px;
-font-size: 14px;
-}
-
-/* ===== GAMES PAGE ===== */
-
-.game-card {
-margin-top: 25px;
-text-align: center;
-}
-
-.game-image {
-width: 220px;
-border: 2px solid #8fb1d9;
-background: #ffffff;
-padding: 5px;
-transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.game-image:hover {
-transform: scale(1.05);
-box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-}
-
-.game-title {
-margin-top: 8px;
-font-weight: bold;
-color: #1e5aa8;
-}
-
-.game-players {
-font-size: 14px;
-color: #2a4f7a;
-margin-bottom: 10px;
-}
-
-/* ===== DISCORD PAGE ===== */
-
-.discord-card {
-margin-top: 20px;
-text-align: center;
-}
-
-.discord-image {
-width: 220px;
-border: 2px solid #8fb1d9;
-background: #ffffff;
-padding: 8px;
-transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.discord-image:hover {
-transform: scale(1.05);
-box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-}
-
-/* ===== JOURNAL DEV ===== */
-
-.journal-layout {
-display: flex;
-gap: 20px;
-margin-top: 20px;
-}
-
-.journal-main {
-flex: 3;
-}
-
-.journal-sidebar {
-flex: 1;
-background: #efe8d6;
-border: 1px solid #c7bfa6;
-padding: 10px;
-}
-
-/* ===== MOBILE ===== */
-
-@media (max-width: 600px) {
-
-.logo {
-height: 30px;
-}
-
-.nav-bar {
-font-size: 13px;
-padding: 10px 5px;
-line-height: 1.6;
-}
-
-.box-with-image {
-flex-direction: column;
-text-align: center;
-}
-
-.box-image img {
-width: 70px;
-margin-top: 10px;
-}
-
-.game-image,
-.discord-image {
-width: 180px;
-}
-
-.journal-layout {
-flex-direction: column;
-}
-
-}
-
-index.html:
-
-{% extends "base.html" %}
-
+</body>
+</html>
