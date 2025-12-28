@@ -44,5 +44,36 @@
     <p>© 2025 Old Studio. All rights reserved.</p>
 </footer>
 
+<!-- ===== SLIDER SCRIPT ===== -->
+<script>
+    const sliderImages = [
+        "{{ url_for('static', filename='images/scene1.png') }}",
+        "{{ url_for('static', filename='images/scene2.png') }}",
+        "{{ url_for('static', filename='images/scene3.png') }}",
+        "{{ url_for('static', filename='images/scene4.png') }}",
+        "{{ url_for('static', filename='images/scene5.png') }}",
+        "{{ url_for('static', filename='images/scene6.png') }}"
+    ];
+
+    let sliderIndex = 0;
+
+    function updateSlider() {
+        const img = document.getElementById("slider-image");
+        if (img) {
+            img.src = sliderImages[sliderIndex];
+        }
+    }
+
+    function nextImage() {
+        sliderIndex = (sliderIndex + 1) % sliderImages.length;
+        updateSlider();
+    }
+
+    function prevImage() {
+        sliderIndex = (sliderIndex - 1 + sliderImages.length) % sliderImages.length;
+        updateSlider();
+    }
+</script>
+
 </body>
 </html>
