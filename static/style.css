@@ -1,52 +1,145 @@
-/* ===== SLIDER (NEWS) ===== */
-
-.slider {
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    margin: 15px 0;
-    overflow: hidden;
-    border: 1px solid #8fb1d9;
-    background: #ffffff;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #dbeeff;
+    color: #2a4f7a;
 }
 
-.slider img {
+/* TOPO */
+.top-bar {
+    background: #3b6ea5;
+    color: white;
+    padding: 10px 20px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.site-name {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* BANNER */
+.banner img {
     width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain;
+    max-height: 220px;
+    object-fit: cover;
+}
+
+/* NAVBAR */
+.nav-bar {
+    background: #efe8d6;
+    border-top: 1px solid #c7bfa6;
+    border-bottom: 1px solid #c7bfa6;
+    padding: 8px;
+    text-align: center;
+}
+
+.nav-bar a {
+    color: #1e5aa8;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+/* CONTEÚDO */
+.container {
+    padding: 20px;
+}
+
+.box {
+    background: #f4f9ff;
+    border: 1px solid #8fb1d9;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* TÍTULOS */
+.title-blue {
+    color: #1e5aa8;
+}
+
+/* CAIXAS COM IMAGEM */
+.box-with-image {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.box-text {
+    flex: 1;
+}
+
+.box-image img {
+    width: 90px;
+}
+
+/* SLIDER NEWS */
+.news-slider {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    margin-top: 10px;
+    border: 1px solid #8fb1d9;
+    overflow: hidden;
+    background: #fff;
+}
+
+.news-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* BOTÕES */
-.slider-btn {
+.news-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background: rgba(30, 90, 168, 0.85);
     color: white;
     border: none;
-    padding: 6px 10px;
-    font-size: 18px;
+    font-size: 26px;
+    padding: 5px 12px;
     cursor: pointer;
-    z-index: 2;
 }
 
-.slider-btn.left {
-    left: 6px;
+.news-btn.left {
+    left: 10px;
 }
 
-.slider-btn.right {
-    right: 6px;
+.news-btn.right {
+    right: 10px;
 }
 
-.slider-btn:hover {
-    background: rgba(30, 90, 168, 1);
+/* FOOTER */
+footer {
+    background: #3b6ea5;
+    color: white;
+    text-align: center;
+    padding: 10px;
 }
 
-/* MOBILE AJUSTE */
+/* MOBILE */
 @media (max-width: 600px) {
-    .slider-btn {
-        padding: 5px 8px;
-        font-size: 16px;
+    .box-with-image {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .box-image img {
+        width: 70px;
+    }
+
+    .news-slider {
+        height: 180px;
     }
 }
