@@ -1,83 +1,59 @@
 {% extends "base.html" %}
+
 {% block content %}
 
 <!-- CAIXA 1 -->
 <div class="box box-with-image">
     <div class="box-text">
-        <h2 class="title-blue">Welcome to Old Studio</h2>
+        <h2 style="color: #1e5aa8;">Welcome to Old Studio</h2>
         <p>
-            Welcome to the official Old Studio website.
-            This studio focuses on bringing back the classic Roblox experience.
+            Welcome to the official Old Studio website. This studio focuses on bringing back the classic Roblox experience.
         </p>
     </div>
 
     <div class="box-image">
-        <img src="{{ url_for('static', filename='images/build.png') }}">
+        <img src="{{ url_for('static', filename='images/build.png') }}" alt="Build">
     </div>
 </div>
 
 <!-- CAIXA 2 -->
 <div class="box box-with-image">
     <div class="box-text">
-        <h2 class="title-blue">Why do we make retro-style games?</h2>
+        <h2 style="color: #1e5aa8;">Why do we make retro-style games?</h2>
         <p>
-            We want to bring back the feeling of what it would be like if Roblox were in 2006–2007.
+            We want to bring back the feeling of what it would be like if Roblox were in 2006-2007.
         </p>
     </div>
 
     <div class="box-image">
-        <img src="{{ url_for('static', filename='images/roblox.png') }}">
+        <img src="{{ url_for('static', filename='images/roblox.png') }}" alt="Roblox Classic">
     </div>
 </div>
 
-<!-- CAIXA 3 - NEWS (SEM BUG) -->
-<div class="box">
-    <h2 class="title-blue">News</h2>
+<!-- CAIXA 3 -->
+<div class="box box-with-image">
+    <div class="box-text">
+        <h2 style="color: #1e5aa8;">News</h2>
 
-    <ul>
-        <li>🖼️ Lost Archive lobby finished.</li>
-        <li>📁 Lost Archive in development.</li>
-        <li>💻 Discord server coming soon.</li>
-    </ul>
+        <ul>
+            <li>🖼️ Lost Archive lobby finished.</li>
+            <li>📁 Lost Archive in development.</li>
+            <li>💻 Discord server coming soon.</li>
+        </ul>
 
-    <!-- SLIDER -->
-    <div class="news-slider">
-        <button class="news-btn left" onclick="prevImage()">‹</button>
+        <div class="news-images">
+            <img src="{{ url_for('static', filename='images/scene1.png') }}">
+            <img src="{{ url_for('static', filename='images/scene2.png') }}">
+            <img src="{{ url_for('static', filename='images/scene3.png') }}">
+            <img src="{{ url_for('static', filename='images/scene4.png') }}">
+            <img src="{{ url_for('static', filename='images/scene5.png') }}">
+            <img src="{{ url_for('static', filename='images/scene6.png') }}">
+        </div>
+    </div>
 
-        <img id="news-image"
-             src="{{ url_for('static', filename='images/scene1.png') }}"
-             alt="Lost Archive Scene">
-
-        <button class="news-btn right" onclick="nextImage()">›</button>
+    <div class="box-image">
+        <img src="{{ url_for('static', filename='images/time.png') }}" alt="Development Time">
     </div>
 </div>
-
-<!-- SCRIPT DO SLIDER -->
-<script>
-    const newsImages = [
-        "{{ url_for('static', filename='images/scene1.png') }}",
-        "{{ url_for('static', filename='images/scene2.png') }}",
-        "{{ url_for('static', filename='images/scene3.png') }}",
-        "{{ url_for('static', filename='images/scene4.png') }}",
-        "{{ url_for('static', filename='images/scene5.png') }}",
-        "{{ url_for('static', filename='images/scene6.png') }}"
-    ];
-
-    let index = 0;
-
-    function updateImage() {
-        document.getElementById("news-image").src = newsImages[index];
-    }
-
-    function nextImage() {
-        index = (index + 1) % newsImages.length;
-        updateImage();
-    }
-
-    function prevImage() {
-        index = (index - 1 + newsImages.length) % newsImages.length;
-        updateImage();
-    }
-</script>
 
 {% endblock %}
