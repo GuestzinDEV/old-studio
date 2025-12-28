@@ -1,3 +1,5 @@
+/* ===== BASE DO SITE ===== */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -5,10 +7,13 @@ body {
     color: #2a4f7a;
 }
 
-/* TOPO */
+/* ===== TOPO ===== */
+
 .top-bar {
     background: #3b6ea5;
     color: white;
+    display: flex;
+    align-items: center;
     padding: 10px 20px;
 }
 
@@ -27,30 +32,43 @@ body {
     font-size: 18px;
 }
 
-/* BANNER */
+/* ===== BANNER ===== */
+
 .banner img {
     width: 100%;
-    max-height: 220px;
+    max-height: 200px;
     object-fit: cover;
 }
 
-/* NAVBAR */
+/* ===== NAVBAR RETRÔ (ROBLOX ANTIGO) ===== */
+
 .nav-bar {
     background: #efe8d6;
     border-top: 1px solid #c7bfa6;
     border-bottom: 1px solid #c7bfa6;
-    padding: 8px;
+    padding: 8px 0;
     text-align: center;
+    font-size: 14px;
 }
 
 .nav-bar a {
     color: #1e5aa8;
-    font-weight: bold;
     text-decoration: none;
-    margin: 0 5px;
+    font-weight: bold;
+    margin: 0 4px;
 }
 
-/* CONTEÚDO */
+.nav-bar a:hover {
+    text-decoration: underline;
+}
+
+.nav-bar span {
+    color: #7b6a4f;
+    margin: 0 3px;
+}
+
+/* ===== CONTEÚDO ===== */
+
 .container {
     padding: 20px;
 }
@@ -62,14 +80,17 @@ body {
     margin-bottom: 20px;
 }
 
-/* TÍTULOS */
+/* ===== TÍTULOS ===== */
+
 .title-blue {
     color: #1e5aa8;
 }
 
-/* CAIXAS COM IMAGEM */
+/* ===== HOME COM IMAGEM AO LADO ===== */
+
 .box-with-image {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 20px;
 }
@@ -80,56 +101,121 @@ body {
 
 .box-image img {
     width: 90px;
+    height: auto;
+    opacity: 0.95;
 }
 
-/* SLIDER NEWS */
-.news-slider {
-    position: relative;
-    width: 100%;
-    height: 220px;
-    margin-top: 10px;
-    border: 1px solid #8fb1d9;
-    overflow: hidden;
-    background: #fff;
-}
+/* ===== FOOTER ===== */
 
-.news-slider img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* BOTÕES */
-.news-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(30, 90, 168, 0.85);
-    color: white;
-    border: none;
-    font-size: 26px;
-    padding: 5px 12px;
-    cursor: pointer;
-}
-
-.news-btn.left {
-    left: 10px;
-}
-
-.news-btn.right {
-    right: 10px;
-}
-
-/* FOOTER */
 footer {
     background: #3b6ea5;
     color: white;
     text-align: center;
     padding: 10px;
+    font-size: 14px;
 }
 
-/* MOBILE */
+/* ===== GAMES PAGE ===== */
+
+.game-card {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.game-image {
+    width: 220px;
+    border: 2px solid #8fb1d9;
+    background: #ffffff;
+    padding: 5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.game-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.game-title {
+    margin-top: 8px;
+    font-weight: bold;
+    color: #1e5aa8;
+}
+
+.game-players {
+    font-size: 14px;
+    color: #2a4f7a;
+    margin-bottom: 10px;
+}
+
+/* ===== DISCORD PAGE ===== */
+
+.discord-card {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.discord-image {
+    width: 220px;
+    border: 2px solid #8fb1d9;
+    background: #ffffff;
+    padding: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.discord-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* ===== JOURNAL DEV ===== */
+
+.journal-layout {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.journal-main {
+    flex: 3;
+}
+
+.journal-sidebar {
+    flex: 1;
+    background: #efe8d6;
+    border: 1px solid #c7bfa6;
+    padding: 10px;
+}
+
+/* ===== NEWS IMAGES ===== */
+
+.news-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.news-images img {
+    width: 100%;
+    border: 2px solid #8fb1d9;
+    background: #ffffff;
+    padding: 3px;
+}
+
+/* ===== MOBILE ===== */
+
 @media (max-width: 600px) {
+
+    .logo {
+        height: 30px;
+    }
+
+    .nav-bar {
+        font-size: 13px;
+        padding: 10px 5px;
+        line-height: 1.6;
+    }
+
     .box-with-image {
         flex-direction: column;
         text-align: center;
@@ -137,9 +223,19 @@ footer {
 
     .box-image img {
         width: 70px;
+        margin-top: 10px;
     }
 
-    .news-slider {
-        height: 180px;
+    .game-image,
+    .discord-image {
+        width: 180px;
+    }
+
+    .journal-layout {
+        flex-direction: column;
+    }
+
+    .news-images {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
