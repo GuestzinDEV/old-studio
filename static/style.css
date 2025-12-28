@@ -1,221 +1,52 @@
-/* ===== BASE DO SITE ===== */
+/* ===== SLIDER (NEWS) ===== */
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #dbeeff;
-    color: #2a4f7a;
-}
-
-/* ===== TOPO ===== */
-
-.top-bar {
-    background: #3b6ea5;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-}
-
-.logo-area {
-    display: flex;
-    align-items: center;
-}
-
-.logo {
-    height: 40px;
-    margin-right: 10px;
-}
-
-.site-name {
-    font-weight: bold;
-    font-size: 18px;
-}
-
-/* ===== BANNER ===== */
-
-.banner img {
+.slider {
+    position: relative;
     width: 100%;
-    max-height: 200px;
-    object-fit: cover;
-}
-
-/* ===== NAVBAR RETRÔ (ROBLOX ANTIGO) ===== */
-
-.nav-bar {
-    background: #efe8d6;
-    border-top: 1px solid #c7bfa6;
-    border-bottom: 1px solid #c7bfa6;
-    padding: 8px 0;
-    text-align: center;
-    font-size: 14px;
-}
-
-.nav-bar a {
-    color: #1e5aa8;
-    text-decoration: none;
-    font-weight: bold;
-    margin: 0 4px;
-}
-
-.nav-bar a:hover {
-    text-decoration: underline;
-}
-
-.nav-bar span {
-    color: #7b6a4f;
-    margin: 0 3px;
-}
-
-/* ===== CONTEÚDO ===== */
-
-.container {
-    padding: 20px;
-}
-
-.box {
-    background: #f4f9ff;
+    max-width: 100%;
+    margin: 15px 0;
+    overflow: hidden;
     border: 1px solid #8fb1d9;
-    padding: 20px;
-    margin-bottom: 20px;
+    background: #ffffff;
 }
 
-/* ===== TÍTULOS ===== */
-
-.title-blue {
-    color: #1e5aa8;
-}
-
-/* ===== HOME COM IMAGEM AO LADO ===== */
-
-.box-with-image {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-.box-text {
-    flex: 1;
-}
-
-.box-image img {
-    width: 90px;
+.slider img {
+    width: 100%;
     height: auto;
-    opacity: 0.95;
+    display: block;
+    object-fit: contain;
 }
 
-/* ===== FOOTER ===== */
-
-footer {
-    background: #3b6ea5;
+/* BOTÕES */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(30, 90, 168, 0.85);
     color: white;
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
+    border: none;
+    padding: 6px 10px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 2;
 }
 
-/* ===== GAMES PAGE ===== */
-
-.game-card {
-    margin-top: 25px;
-    text-align: center;
+.slider-btn.left {
+    left: 6px;
 }
 
-.game-image {
-    width: 220px;
-    border: 2px solid #8fb1d9;
-    background: #ffffff;
-    padding: 5px;
-    transition: transform 0.2s, box-shadow 0.2s;
+.slider-btn.right {
+    right: 6px;
 }
 
-.game-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+.slider-btn:hover {
+    background: rgba(30, 90, 168, 1);
 }
 
-.game-title {
-    margin-top: 8px;
-    font-weight: bold;
-    color: #1e5aa8;
-}
-
-.game-players {
-    font-size: 14px;
-    color: #2a4f7a;
-    margin-bottom: 10px;
-}
-
-/* ===== DISCORD PAGE ===== */
-
-.discord-card {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.discord-image {
-    width: 220px;
-    border: 2px solid #8fb1d9;
-    background: #ffffff;
-    padding: 8px;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.discord-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-}
-
-/* ===== JOURNAL DEV ===== */
-
-.journal-layout {
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.journal-main {
-    flex: 3;
-}
-
-.journal-sidebar {
-    flex: 1;
-    background: #efe8d6;
-    border: 1px solid #c7bfa6;
-    padding: 10px;
-}
-
-/* ===== MOBILE ===== */
-
+/* MOBILE AJUSTE */
 @media (max-width: 600px) {
-
-    .logo {
-        height: 30px;
-    }
-
-    .nav-bar {
-        font-size: 13px;
-        padding: 10px 5px;
-        line-height: 1.6;
-    }
-
-    .box-with-image {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .box-image img {
-        width: 70px;
-        margin-top: 10px;
-    }
-
-    .game-image,
-    .discord-image {
-        width: 180px;
-    }
-
-    .journal-layout {
-        flex-direction: column;
+    .slider-btn {
+        padding: 5px 8px;
+        font-size: 16px;
     }
 }
