@@ -19,10 +19,15 @@ def get_online_count():
     return len(online_sessions)
 
 @app.before_request
-def track_session():
+def track_and_log():
+    # session online
     if "session_id" not in session:
         session["session_id"] = str(uuid.uuid4())
     online_sessions[session["session_id"]] = time.time()
+
+    # log no Render
+    ip = request.headers.get("X-Forwarded-For", request.remote_addr)
+    print(f"[VISIT] IP: {ip} | Path: {request.path}")
 
 @app.context_processor
 def inject_online():
@@ -32,16 +37,7 @@ def inject_online():
 SUPABASE_URL = os.environ.get("SUPABASE_URL")
 SUPABASE_SERVICE_KEY = os.environ.get("SUPABASE_SERVICE_KEY")
 
-if not SUPABASE_URL or not SUPABASE_SERVICE_KEY:
-    raise Exception("Supabase URL or Service Key not set in environment variables")
-
 supabase = create_client(SUPABASE_URL, SUPABASE_SERVICE_KEY)
-
-# ================= DEV PASSWORDS =================
-DEV_PASSWORDS = {
-    "Guestzin": os.environ.get("DEV_GUESTZIN_PASSWORD"),
-    "Mrc": os.environ.get("DEV_MRC_PASSWORD")
-}
 
 # ================= ROUTES =================
 @app.route("/")
@@ -52,19 +48,6 @@ def home():
 def games():
     return render_template("games.html")
 
-@app.route("/discord")
-def discord():
-    return render_template("discord.html")
-
-@app.route("/credits")
-def credits():
-    return render_template("credits.html")
-
-@app.route("/about")
-def about():
-    return render_template("about.html")
-
-# ================= JOURNAL =================
 @app.route("/journal", methods=["GET", "POST"])
 def journal():
     error = None
@@ -74,8 +57,7 @@ def journal():
         password = request.form.get("password")
         content = request.form.get("content")
 
-        # validar senha
-        if DEV_PASSWORDS.get(author) != password:
+        if password != os.environ.get("DEV_PASSWORD"):
             error = "Invalid password."
         else:
             try:
@@ -87,19 +69,9 @@ def journal():
             except Exception as e:
                 error = f"Failed to post update: {e}"
 
-    # pegar todos os posts
-    try:
-        response = supabase.table("journal_posts").select("*").order("created_at", desc=True).execute()
-        posts = response.data if response.data else []
-    except Exception as e:
-        posts = []
-        error = f"Failed to fetch posts: {e}"
+    posts = supabase.table("journal_posts").select("*").order("created_at", desc=True).execute().data
 
-    return render_template(
-        "journal.html",
-        posts=posts,
-        error=error
-    )
+    return render_template("journal.html", posts=posts, error=error)
 
 if __name__ == "__main__":
     app.run(debug=True)
