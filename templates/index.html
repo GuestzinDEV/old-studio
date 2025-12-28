@@ -4,9 +4,13 @@
 <!-- CAIXA 1 -->
 <div class="box box-with-image">
     <div class="box-text">
-        <h2 style="color:#1e5aa8;">Welcome to Old Studio</h2>
-        <p>Welcome to the official Old Studio website.</p>
+        <h2 class="title-blue">Welcome to Old Studio</h2>
+        <p>
+            Welcome to the official Old Studio website.
+            This studio focuses on bringing back the classic Roblox experience.
+        </p>
     </div>
+
     <div class="box-image">
         <img src="{{ url_for('static', filename='images/build.png') }}">
     </div>
@@ -15,32 +19,65 @@
 <!-- CAIXA 2 -->
 <div class="box box-with-image">
     <div class="box-text">
-        <h2 style="color:#1e5aa8;">Why retro games?</h2>
-        <p>Bringing back the Roblox 2006–2007 feeling.</p>
+        <h2 class="title-blue">Why do we make retro-style games?</h2>
+        <p>
+            We want to bring back the feeling of what it would be like if Roblox were in 2006–2007.
+        </p>
     </div>
+
     <div class="box-image">
         <img src="{{ url_for('static', filename='images/roblox.png') }}">
     </div>
 </div>
 
-<!-- CAIXA 3 - NEWS + SLIDER -->
+<!-- CAIXA 3 - NEWS (SEM BUG) -->
 <div class="box">
-    <h2 style="color:#1e5aa8;">News</h2>
-    <p>🖼️ Lost Archive lobby finished.</p>
+    <h2 class="title-blue">News</h2>
 
-    <div class="slider">
-        <button class="slider-btn left" onclick="prevImage()">&#10094;</button>
+    <ul>
+        <li>🖼️ Lost Archive lobby finished.</li>
+        <li>📁 Lost Archive in development.</li>
+        <li>💻 Discord server coming soon.</li>
+    </ul>
 
-        <img
-            id="slider-image"
-            src="{{ url_for('static', filename='images/scene1.png') }}"
-        >
+    <!-- SLIDER -->
+    <div class="news-slider">
+        <button class="news-btn left" onclick="prevImage()">‹</button>
 
-        <button class="slider-btn right" onclick="nextImage()">&#10095;</button>
+        <img id="news-image"
+             src="{{ url_for('static', filename='images/scene1.png') }}"
+             alt="Lost Archive Scene">
+
+        <button class="news-btn right" onclick="nextImage()">›</button>
     </div>
-
-    <p>📁 Lost Archive in development.</p>
-    <p>💻 Discord server coming soon.</p>
 </div>
+
+<!-- SCRIPT DO SLIDER -->
+<script>
+    const newsImages = [
+        "{{ url_for('static', filename='images/scene1.png') }}",
+        "{{ url_for('static', filename='images/scene2.png') }}",
+        "{{ url_for('static', filename='images/scene3.png') }}",
+        "{{ url_for('static', filename='images/scene4.png') }}",
+        "{{ url_for('static', filename='images/scene5.png') }}",
+        "{{ url_for('static', filename='images/scene6.png') }}"
+    ];
+
+    let index = 0;
+
+    function updateImage() {
+        document.getElementById("news-image").src = newsImages[index];
+    }
+
+    function nextImage() {
+        index = (index + 1) % newsImages.length;
+        updateImage();
+    }
+
+    function prevImage() {
+        index = (index - 1 + newsImages.length) % newsImages.length;
+        updateImage();
+    }
+</script>
 
 {% endblock %}
