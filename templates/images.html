@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- CAIXA PRINCIPAL -->
+<div class="box">
+    <h2 style="color: #1e5aa8;">Images Dev</h2>
+    <p>
+        In images dev, you can see all the public photos of the game's development,
+        officially published for the general public.
+    </p>
+</div>
+
+<!-- CAIXA NPCs -->
+<div class="box">
+    <h3 style="color: #1e5aa8;">
+        All 6 NPCs have been added - Lost Archive (2025/12/29)
+    </h3>
+
+    <div class="news-images">
+        <img src="{{ url_for('static', filename='images/npc1.png') }}">
+        <img src="{{ url_for('static', filename='images/npc2.png') }}">
+        <img src="{{ url_for('static', filename='images/npc3.png') }}">
+        <img src="{{ url_for('static', filename='images/npc4.png') }}">
+        <img src="{{ url_for('static', filename='images/npc5.png') }}">
+        <img src="{{ url_for('static', filename='images/npc6.png') }}">
+    </div>
+</div>
+
+<!-- CAIXA LOBBY -->
+<div class="box">
+    <h3 style="color: #1e5aa8;">
+        Lobby completion - Lost Archive (2025/12/28)
+    </h3>
+
+    <div class="news-images">
+        <img src="{{ url_for('static', filename='images/scene1.png') }}">
+        <img src="{{ url_for('static', filename='images/scene2.png') }}">
+        <img src="{{ url_for('static', filename='images/scene3.png') }}">
+        <img src="{{ url_for('static', filename='images/scene4.png') }}">
+        <img src="{{ url_for('static', filename='images/scene5.png') }}">
+        <img src="{{ url_for('static', filename='images/scene6.png') }}">
+    </div>
+</div>
+
+{% endblock %}
