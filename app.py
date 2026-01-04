@@ -65,6 +65,10 @@ def home():
 def games():
     return render_template("games.html")
 
+@app.route("/images")
+def images_dev():
+    return render_template("images.html")
+
 @app.route("/discord")
 def discord():
     return render_template("discord.html")
